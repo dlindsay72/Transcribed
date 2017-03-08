@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import Speech
 
 class TranscriptionsVC: UITableViewController {
     
@@ -21,6 +23,7 @@ class TranscriptionsVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        checkPermissions()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +52,49 @@ class TranscriptionsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // MARK: - Permissions
+    func checkPermissions () {
+        let recAuthorized = AVAudioSession.sharedInstance().recordPermission() == .granted
+        let transAuthorized = SFSpeechRecognizer.authorizationStatus() == .authorized
+        let authorized = recAuthorized && transAuthorized
+        
+        if !authorized {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "PermissionsVC") {
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
  
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

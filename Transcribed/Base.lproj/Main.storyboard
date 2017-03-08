@@ -44,7 +44,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="grantPermissionPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2hH-Yv-24B"/>
+                                    <action selector="grantNowPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9s9-Do-qIz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -56,10 +56,14 @@
                             <constraint firstItem="Xws-B5-epj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jax-Sj-Hxs"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="DwW-I3-IDM" id="dPJ-dW-8OL"/>
+                        <outlet property="permissionsLabel" destination="Xws-B5-epj" id="DTn-e2-yDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1820" y="-76"/>
+            <point key="canvasLocation" x="-1594" y="-178"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FNN-av-EQN">
@@ -93,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pLW-rw-BGJ" id="ShD-wR-VZ3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -126,7 +130,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6h-In-Zf4" id="vlQ-1X-tXh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -150,7 +154,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Cel-ix-wcS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cel-ix-wcS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.66867369409999999" green="0.24538081880000001" blue="0.3514720201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -175,7 +179,7 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z4w-G6-w4v">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z4w-G6-w4v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.66867369409999999" green="0.24538081880000001" blue="0.3514720201" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
