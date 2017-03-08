@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -133,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mv-oe-VKH">
-                                <rect key="frame" x="105" y="308" width="164" height="51"/>
+                                <rect key="frame" x="105" y="99" width="164" height="51"/>
                                 <color key="backgroundColor" red="0.55206054449999997" green="0.070677973330000005" blue="0.25057768819999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="2nO-DM-BUk"/>
@@ -148,20 +149,36 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Er-EU-6xR">
-                                <rect key="frame" x="169" y="445" width="37" height="37"/>
+                                <rect key="frame" x="169" y="197" width="37" height="106"/>
                                 <color key="color" red="0.0078431372550000003" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zZE-If-GiK">
+                                <rect key="frame" x="16" y="323" width="343" height="295"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="295" id="bgF-lH-BFQ"/>
+                                    <constraint firstAttribute="width" constant="343" id="c4F-Zi-UqN"/>
+                                </constraints>
+                                <color key="textColor" red="0.14913976192474365" green="0.034874115139245987" blue="0.059348098933696747" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0Mv-oe-VKH" firstAttribute="centerY" secondItem="u5t-6W-uXM" secondAttribute="centerY" id="4eT-Ji-Jqa"/>
-                            <constraint firstItem="7Er-EU-6xR" firstAttribute="centerX" secondItem="u5t-6W-uXM" secondAttribute="centerX" id="75v-G2-QR7"/>
-                            <constraint firstItem="7Er-EU-6xR" firstAttribute="top" secondItem="0Mv-oe-VKH" secondAttribute="bottom" constant="86" id="GuY-FW-ykY"/>
-                            <constraint firstItem="0Mv-oe-VKH" firstAttribute="centerX" secondItem="u5t-6W-uXM" secondAttribute="centerX" id="KSJ-BB-Ygn"/>
+                            <constraint firstItem="zZE-If-GiK" firstAttribute="top" secondItem="7Er-EU-6xR" secondAttribute="bottom" constant="20" id="CIo-tL-94O"/>
+                            <constraint firstItem="7Er-EU-6xR" firstAttribute="centerX" secondItem="u5t-6W-uXM" secondAttribute="centerX" id="JfO-ww-stn"/>
+                            <constraint firstItem="0Mv-oe-VKH" firstAttribute="top" secondItem="dfX-Lh-DMB" secondAttribute="bottom" constant="35" id="R9i-xH-mOW"/>
+                            <constraint firstItem="nFh-bJ-5xm" firstAttribute="top" secondItem="zZE-If-GiK" secondAttribute="bottom" id="TkX-2l-uTY"/>
+                            <constraint firstItem="zZE-If-GiK" firstAttribute="leading" secondItem="u5t-6W-uXM" secondAttribute="leadingMargin" id="cxa-Vx-h3n"/>
+                            <constraint firstItem="zZE-If-GiK" firstAttribute="trailing" secondItem="u5t-6W-uXM" secondAttribute="trailingMargin" id="ebU-q3-V1p"/>
+                            <constraint firstItem="7Er-EU-6xR" firstAttribute="top" secondItem="0Mv-oe-VKH" secondAttribute="bottom" constant="47" id="gC3-5j-UAh"/>
+                            <constraint firstItem="0Mv-oe-VKH" firstAttribute="centerX" secondItem="u5t-6W-uXM" secondAttribute="centerX" id="veq-t9-sW7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="recordingInProgressIndicator" destination="7Er-EU-6xR" id="Uac-KX-gW4"/>
+                        <outlet property="textView" destination="zZE-If-GiK" id="lPW-EB-CYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0g-v1-Xhm" userLabel="First Responder" sceneMemberID="firstResponder"/>

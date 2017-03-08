@@ -16,6 +16,7 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
     var recFileUrl: URL!
     var audioPlayer: AVAudioPlayer?
     
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var recordingInProgressIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -92,7 +93,8 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
                 audioPlayer?.stop()
                 audioPlayer = try AVAudioPlayer(contentsOf: recFileUrl)
                 audioPlayer?.play()
-                print("playing.....")
+                transcribeAudio()
+                
             } catch let error {
                 print("DAN: \(error.localizedDescription)")
             }
@@ -102,5 +104,53 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         audioPlayer?.stop()
     }
+    
+    // MARK: - Transcribe
+    func transcribeAudio() {
+        let recognizer = SFSpeechRecognizer()
+        let request = SFSpeechURLRecognitionRequest(url: recFileUrl)
+        
+        recognizer?.recognitionTask(with: request) { [unowned self] (result, error) in
+            
+            guard let result = result else {
+                print("DAN: \(error?.localizedDescription)")
+                return
+            }
+            
+            if result.isFinal {
+                let text = result.bestTranscription.formattedString
+                self.textView.text = text
+            }
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
