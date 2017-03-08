@@ -58,16 +58,40 @@
 		7BCC86431E7060C000D36D47 /* Transcribed */ = {
 			isa = PBXGroup;
 			children = (
-				7BCC86441E7060C000D36D47 /* AppDelegate.swift */,
-				7BCC86461E7060C100D36D47 /* PermissionsVC.swift */,
+				7BCC865D1E706A1100D36D47 /* Model */,
+				7BCC865C1E706A0800D36D47 /* View */,
+				7BCC865B1E706A0000D36D47 /* Controller */,
 				7BCC86481E7060C100D36D47 /* Main.storyboard */,
 				7BCC864E1E7060C100D36D47 /* Assets.xcassets */,
 				7BCC86501E7060C100D36D47 /* LaunchScreen.storyboard */,
 				7BCC86531E7060C100D36D47 /* Info.plist */,
 				7BCC864B1E7060C100D36D47 /* Transcribed.xcdatamodeld */,
-				7BCC86591E7068DA00D36D47 /* TranscriptionsVC.swift */,
 			);
 			path = Transcribed;
+			sourceTree = "<group>";
+		};
+		7BCC865B1E706A0000D36D47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7BCC86441E7060C000D36D47 /* AppDelegate.swift */,
+				7BCC86461E7060C100D36D47 /* PermissionsVC.swift */,
+				7BCC86591E7068DA00D36D47 /* TranscriptionsVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		7BCC865C1E706A0800D36D47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7BCC865D1E706A1100D36D47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
