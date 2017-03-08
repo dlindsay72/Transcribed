@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PermissionsVC.swift
 //  Transcribed
 //
 //  Created by Dan Lindsay on 2017-03-08.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PermissionsVC: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func grantPermissionPressed(_ sender: Any) {
+        
+    }
 
 }
 
