@@ -14,6 +14,8 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
     
     var audioRec: AVAudioRecorder?
     var recFileUrl: URL!
+    var audioPlayer: AVAudioPlayer?
+    
     @IBOutlet weak var recordingInProgressIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -87,22 +89,18 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
         if success {
             do {
                 //transcribe audio
-                
+                audioPlayer?.stop()
+                audioPlayer = try AVAudioPlayer(contentsOf: recFileUrl)
+                audioPlayer?.play()
+                print("playing.....")
             } catch let error {
                 print("DAN: \(error.localizedDescription)")
             }
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        audioPlayer?.stop()
     }
-    */
 
 }
