@@ -10,23 +10,39 @@ import UIKit
 
 class Utilities {
     
-    static func getDocsDirectory() -> URL {
+    var DateTimeString: String?
+    
+    func getDocsDirectory() -> URL? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docsDirect = paths[0]
         
         return docsDirect
     }
     
-    static func getAudioFileUrl() -> URL? {
-        do {
-            let audioUrl = try getDocsDirectory().appendingPathComponent(getDateAndTime() + ".m4a")
+    func getAudioFileUrl() -> URL? {
+        if let audioUrl = getDocsDirectory()?.appendingPathComponent(getDateAndTime() + ".m4a") {
             return audioUrl
-        } catch _ {
+        } else {
             return nil
         }
+        
     }
     
-    static func getDateAndTime() -> String {
+    func getTextFileUrl() -> URL? {
+        if let textUrl = getDocsDirectory()?.appendingPathComponent(getDateAndTime() + ".txt") {
+            return textUrl
+        } else {
+            return nil
+        }
+        
+    }
+    
+    
+    
+    func getDateAndTime() -> String {
+        if let dateT = DateTimeString {
+            return dateT
+        }
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"

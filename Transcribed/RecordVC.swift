@@ -14,6 +14,10 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
     
     var audioRec: AVAudioRecorder?
     var recFileUrl: URL!
+    var textFileUrl: URL!
+    
+    var transcribed: Bool = false
+    
     var audioPlayer: AVAudioPlayer?
     
     @IBOutlet weak var textView: UITextView!
@@ -23,8 +27,10 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        recFileUrl = Utilities.getAudioFileUrl()
-        print("DAN" + recFileUrl!.absoluteString)
+        let utils = Utilities()
+        recFileUrl = utils.getAudioFileUrl()
+        textFileUrl = utils.getTextFileUrl()
+        print("DAN:" + recFileUrl!.absoluteString)
         recordAudio()
     }
 
@@ -90,6 +96,7 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
         if success {
             do {
                 //transcribe audio
+                
                 audioPlayer?.stop()
                 audioPlayer = try AVAudioPlayer(contentsOf: recFileUrl)
                 audioPlayer?.play()
@@ -103,6 +110,10 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         audioPlayer?.stop()
+        
+        if(transcribed) {
+            CoreDataHelper().storeTranscription(audioFileUrlString: String(describing: recFileUrl) , textFileUrlString: String(describing: textFileUrl))
+        }
     }
     
     // MARK: - Transcribe
@@ -120,9 +131,18 @@ class RecordVC: UIViewController, AVAudioRecorderDelegate {
             if result.isFinal {
                 let text = result.bestTranscription.formattedString
                 self.textView.text = text
+                
+                do {
+                    try text.write(to: self.textFileUrl, atomically: true, encoding: String.Encoding.utf8)
+                    self.transcribed = true
+                } catch {
+                    print("text wasn't written")
+                }
             }
         }
     }
+    
+    
 
 }
 

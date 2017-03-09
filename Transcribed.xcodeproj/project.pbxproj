@@ -16,6 +16,8 @@
 		7BCC864F1E7060C100D36D47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC864E1E7060C100D36D47 /* Assets.xcassets */; };
 		7BCC86521E7060C100D36D47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC86501E7060C100D36D47 /* LaunchScreen.storyboard */; };
 		7BCC865A1E7068DA00D36D47 /* TranscriptionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCC86591E7068DA00D36D47 /* TranscriptionsVC.swift */; };
+		7BEFFAB21E71B7670015121A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BEFFAB11E71B7670015121A /* CoreData.framework */; };
+		7BEFFAB41E71B78B0015121A /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEFFAB31E71B78B0015121A /* CoreDataHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		7BCC86511E7060C100D36D47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7BCC86531E7060C100D36D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BCC86591E7068DA00D36D47 /* TranscriptionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscriptionsVC.swift; sourceTree = "<group>"; };
+		7BEFFAB11E71B7670015121A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7BEFFAB31E71B78B0015121A /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BEFFAB21E71B7670015121A /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +53,7 @@
 			children = (
 				7BCC86431E7060C000D36D47 /* Transcribed */,
 				7BCC86421E7060C000D36D47 /* Products */,
+				7BEFFAB01E71B7670015121A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,8 +102,17 @@
 			isa = PBXGroup;
 			children = (
 				7BADA8EE1E7074E30032152D /* Utilities.swift */,
+				7BEFFAB31E71B78B0015121A /* CoreDataHelper.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		7BEFFAB01E71B7670015121A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7BEFFAB11E71B7670015121A /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +191,7 @@
 				7BCC86471E7060C100D36D47 /* PermissionsVC.swift in Sources */,
 				7BCC865A1E7068DA00D36D47 /* TranscriptionsVC.swift in Sources */,
 				7BCC86451E7060C000D36D47 /* AppDelegate.swift in Sources */,
+				7BEFFAB41E71B78B0015121A /* CoreDataHelper.swift in Sources */,
 				7BADA8F11E7079E60032152D /* RecordVC.swift in Sources */,
 				7BADA8EF1E7074E30032152D /* Utilities.swift in Sources */,
 				7BCC864D1E7060C100D36D47 /* Transcribed.xcdatamodeld in Sources */,

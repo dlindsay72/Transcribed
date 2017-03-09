@@ -9,10 +9,11 @@
 import UIKit
 import AVFoundation
 import Speech
+import CoreData
 
 class TranscriptionsVC: UITableViewController {
     
-    var dummyItems: [String] = ["d", "a", "n", "i", "e", "l"]
+    var transcriptions: [NSManagedObject] = [NSManagedObject]()
     var reuseIdentifier = "transcriptionsTableViewCell"
 
     override func viewDidLoad() {
@@ -24,6 +25,15 @@ class TranscriptionsVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         checkPermissions()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let results = CoreDataHelper().getTranscriptions() {
+            transcriptions = results
+        }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,13 +48,14 @@ class TranscriptionsVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyItems.count
+        return transcriptions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let transc = transcriptions[indexPath.row]
 
-        cell.textLabel?.text = dummyItems[indexPath.row]
+        cell.textLabel?.text = String(describing: transc.value(forKey: "audioFileUrlString"))
 
         return cell
     }
